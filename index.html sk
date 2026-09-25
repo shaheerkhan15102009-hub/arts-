@@ -1,0 +1,22 @@
+const translations = {
+  en: {
+    welcome: "Welcome",
+    description: "This is a bilingual website."
+  },
+  es: {
+    welcome: "Bienvenido",
+    description: "Este es un sitio web bilingüe."
+  }
+};
+
+function setLanguage(lang) {
+  document.getElementById("welcome").innerText = translations[lang].welcome;
+  document.getElementById("description").innerText = translations[lang].description;
+  localStorage.setItem("preferred_lang", lang);
+}
+
+// Load saved language on startup
+window.onload = function() {
+  const savedLang = localStorage.getItem("preferred_lang") || "en";
+  setLanguage(savedLang);
+};
